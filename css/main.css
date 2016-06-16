@@ -10,6 +10,10 @@ pre {
 	border: none;
 }
 
+.navbar-brand > img {
+	display: inline;
+	margin-top: -5px;
+}
 
 body {
   padding-top: 64px;
