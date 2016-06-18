@@ -28,8 +28,10 @@ body {
   body>.navbar-transparent .navbar-nav>.open>a {
     background-color: transparent!important;
   }
-  
-  .container {
-    width: initial;
+}
+
+@media (max-width:991px) {
+  .navbar-right {
+    display: none;
   }
 }
