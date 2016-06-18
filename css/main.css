@@ -19,6 +19,9 @@ body {
   padding-top: 64px;
 }
 
+.navbar-right iframe {
+	margin-top: 17px;
+}
 
 @media (min-width:768px) {
   body>.navbar-transparent {
@@ -30,8 +33,9 @@ body {
   }
 }
 
-@media (max-width:991px) {
-  .navbar-right {
-    display: none;
+@media (max-width:767px) {
+  .navbar-right iframe {
+    margin-left: 14px;
+    margin-top: 0;
   }
 }
