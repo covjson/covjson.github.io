@@ -19,6 +19,7 @@ body {
   padding-top: 64px;
 }
 
+
 @media (min-width:768px) {
   body>.navbar-transparent {
     background-color: transparent;
@@ -26,5 +27,9 @@ body {
 
   body>.navbar-transparent .navbar-nav>.open>a {
     background-color: transparent!important;
+  }
+  
+  .container {
+    width: initial;
   }
 }
