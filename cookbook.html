@@ -10,4 +10,19 @@ body {
 }
 </style>
 
-<iframe src="https://reading-escience-centre.gitbooks.io/coveragejson-cookbook/content/" width="100%" height="100%"></iframe>
+<noscript>
+  <iframe id="cookbook" src="https://reading-escience-centre.gitbooks.io/coveragejson-cookbook/content/" width="100%" height="100%"></iframe>
+</noscript>
+
+<script>
+var file = ''
+if (window.location.hash) {
+  var page = window.location.hash.substr(1)
+  file = page + '.html'
+}
+var iframe = document.createElement('iframe')
+iframe.width = iframe.height = '100%'
+iframe.sandbox = 'allow-forms allow-scripts allow-same-origin'
+iframe.src = 'https://reading-escience-centre.gitbooks.io/coveragejson-cookbook/content/' + file
+document.body.appendChild(iframe)
+</script>
