@@ -3,7 +3,7 @@ html, body {
 }
 
 :focus {
-    outline: none;
+  outline: none;
 }
 
 iframe {
@@ -21,6 +21,7 @@ pre {
 
 body {
   padding-top: 64px;
+  font-size: 15px;
 }
 
 .navbar-right iframe {

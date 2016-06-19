@@ -45,7 +45,6 @@ WORK-IN-PROGRESS
 </table>
 
 ## TODO
-{:.no_toc}
 
 The following items are (major) outstanding issues to be resolved for the first version: 
 
@@ -319,7 +318,7 @@ where `"SST_mean"` references the following parameter:
       "en": "Kelvin"
     },
     "symbol": {
-      "value": "K"
+      "value": "K",
       "type": "http://www.opengis.net/def/uom/UCUM/"
     }
   }
@@ -343,7 +342,7 @@ and `"SST_stddev"`:
       "en": "Kelvin"
     },
     "symbol": {
-      "value": "K"
+      "value": "K",
       "type": "http://www.opengis.net/def/uom/UCUM/"
     }
   }
