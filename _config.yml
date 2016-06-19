@@ -2,5 +2,7 @@ title: CoverageJSON
 description: CoverageJSON is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).
 logo: /logo_small.png
 markdown: kramdown
+kramdown:
+  toc_levels: 2..6
 gems:
   - jekyll-seo-tag
