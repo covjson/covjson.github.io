@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page-with-anchors
 title: Specification
 permalink: /domain-types/
 ---
