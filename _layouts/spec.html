@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="container spec">
+    {{ content }}
+</div>
+
+<style>
+#markdown-toc {
+  width: 300px;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.spec {
+  padding: 0 0 0 300px;
+}
+#contents {
+  display: none;
+}
+</style>
+
+<script src="/js/anchor.min.js"></script>
+<script>anchors.add('h2, h3, h4')</script>

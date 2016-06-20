@@ -1,6 +1,6 @@
 ---
-layout: page-with-anchors
-title: Specification
+layout: spec
+title: CoverageJSON Format Specification
 permalink: /spec/
 ---
 

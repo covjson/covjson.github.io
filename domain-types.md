@@ -1,6 +1,6 @@
 ---
-layout: page-with-anchors
-title: Specification
+layout: spec
+title: Common CoverageJSON Domain Types Specification
 permalink: /domain-types/
 ---
 
