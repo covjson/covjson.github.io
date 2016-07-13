@@ -1,0 +1,9 @@
+---
+layout: default
+title: Prefixes
+permalink: /prefixes/
+---
+
+{% for prefsuf in site.data.prefixes['@context'] %}
+  {{ prefsuf[0] }}: {{ prefsuf[1] }}
+{% endfor %}
