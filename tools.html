@@ -21,18 +21,12 @@ permalink: /tools/
 			  <div class="panel-heading"><h3>JavaScript</h3></div>
 
 	      <div class="list-group">
-          <a href="https://github.com/Reading-eScience-Centre/covjson-reader" class="list-group-item">
-            <h4 class="list-group-item-heading">covjson-reader</h4>
-            <p class="list-group-item-text">A CovJSON reader supporting subsetting and lazy loading.</p>
+	      {% for tool in site.data.tools.javascript %}
+          <a href="{{ tool.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ tool.name }}</h4>
+            <p class="list-group-item-text">{{ tool.description }}</p>
           </a>
-          <a href="https://github.com/Reading-eScience-Centre/leaflet-coverage" class="list-group-item">
-            <h4 class="list-group-item-heading">leaflet-coverage</h4>
-            <p class="list-group-item-text">A Leaflet plugin for visualizing CovJSON and other coverage data.</p>
-          </a>
-          <a href="https://github.com/Reading-eScience-Centre/webworldwind-covjson" class="list-group-item">
-            <h4 class="list-group-item-heading">webworldwind-covjson (WIP)</h4>
-            <p class="list-group-item-text">A Web World Wind plugin for visualizing CovJSON and other coverage data.</p>
-          </a>
+        {% endfor %}
         </div>
 	    </div>
     </div>
@@ -41,10 +35,12 @@ permalink: /tools/
         <div class="panel-heading"><h3>Java</h3></div>
 
         <div class="list-group">
-          <a href="https://reading-escience-centre.gitbooks.io/ncwms-user-guide/content/" class="list-group-item">
-            <h4 class="list-group-item-heading">ncWMS</h4>
-            <p class="list-group-item-text">A WMS server with CovJSON as output format.</p>
+        {% for tool in site.data.tools.java %}
+          <a href="{{ tool.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ tool.name }}</h4>
+            <p class="list-group-item-text">{{ tool.description }}</p>
           </a>
+        {% endfor %}
         </div>
       </div>
     </div>
@@ -53,12 +49,26 @@ permalink: /tools/
         <div class="panel-heading"><h3>Python</h3></div>
 
         <div class="list-group">
-          <a href="https://github.com/Reading-eScience-Centre/pycovjson" class="list-group-item">
-            <h4 class="list-group-item-heading">pycovjson (WIP)</h4>
-            <p class="list-group-item-text">Transforms common scientific data formats like netCDF into CovJSON.</p>
+        {% for tool in site.data.tools.python %}
+          <a href="{{ tool.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ tool.name }}</h4>
+            <p class="list-group-item-text">{{ tool.description }}</p>
           </a>
+        {% endfor %}
         </div>
       </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">How to add your tool</h3>
+    </div>
+    <div class="panel-body">
+      Just submit a pull request for the 
+      <a href="https://github.com/covjson/covjson.github.io/blob/master/_data/tools.yaml">tools.yaml</a>
+      file on GitHub, and once accepted, your tool will appear here immediately.
+      <a href="https://github.com/covjson/covjson.github.io/issues/new">Create an issue</a>
+      if your tool is written in a language other than the ones above.
     </div>
   </div>
 </div>

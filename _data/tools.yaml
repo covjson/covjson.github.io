@@ -1,0 +1,22 @@
+javascript:
+  - name: covjson-reader
+    url: https://github.com/Reading-eScience-Centre/covjson-reader
+    description: A CovJSON reader supporting subsetting and lazy loading.
+  
+  - name: leaflet-coverage
+    url: https://github.com/Reading-eScience-Centre/leaflet-coverage
+    description: A Leaflet plugin for visualizing CovJSON and other coverage data.
+    
+  - name: webworldwind-covjson (WIP)
+    url: https://github.com/Reading-eScience-Centre/webworldwind-covjson
+    description: A Web World Wind plugin for visualizing CovJSON and other coverage data.
+
+java:
+  - name: ncWMS
+    url: https://reading-escience-centre.gitbooks.io/ncwms-user-guide/content/
+    description: A WMS server with CovJSON as output format.
+
+python:
+  - name: pycovjson (WIP)
+    url: https://github.com/Reading-eScience-Centre/pycovjson
+    description: Transforms common scientific data formats like netCDF into CovJSON.
