@@ -156,6 +156,7 @@ The following lists some areas where the model used by CoverageJSON departs from
 
 - JavaScript Object Notation (JSON), and the terms object, name, value, array, string, number, and null, are defined in [IETF RFC 4627](http://www.ietf.org/rfc/rfc4627.txt).
 - JSON-LD is defined in [http://www.w3.org/TR/json-ld/](http://www.w3.org/TR/json-ld/).
+- A compact URI has the form prefix:suffix.
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [IETF RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
 ## 2. i18n Objects
@@ -183,8 +184,7 @@ Parameter objects represent metadata about the values of the coverage in terms o
 - A parameter object MAY have a member with the name `"description"` where the value MUST be an i18n object which is a, perhaps lengthy, textual description of the parameter.
 - A parameter object MUST have a member with the name `"observedProperty"` where the value is an object which MUST have the member `"label"` and which MAY have the members `"id"`, `"description"`, and `"categories"`. The value of `"label"` MUST be an i18n object that is the name of the observed property and which SHOULD be short. If given, the value of `"id"` MUST be a string and SHOULD be a common identifier. If given, the value of `"description"` MUST be an i18n object with a textual description of the observed property. If given, the value of `"categories"` MUST be a non-empty array of category objects. A category object MUST an `"id"` and a `"label"` member,  and MAY have a `"description"` member. The value of `"id"` MUST be a string and SHOULD be a common identifier. The value of `"label"` MUST be an i18n object of the name of the category and SHOULD be short. If given, the value of `"description"` MUST be an i18n object with a textual description of the category.
 - A parameter object MAY have a member with the name `"categoryEncoding"` where the value is an object where each key is equal to an `"id"` value of the `"categories"` array within the `"observedProperty"` member of the parameter object. There MUST be no duplicate keys. The value is either an integer or an array of integers where each integer MUST be unique within the object.
-- A parameter object MAY have a member with the name `"unit"` where the value is an object which MUST have either or both the members `"label"` or/and "`symbol`", and which MAY have the member `"id"`. If given, the value of `"symbol"` MUST either be a string of the symbolic notation of the unit, or an object with the members `"value"` and `"type"` where `"value"` is the symbolic unit notation and `"type"` is a URI which references the unit serialization scheme that is used. If given, the value of `"label"` MUST be an i18n object of the name of the unit and SHOULD be short. If given, the value of `"id"` MUST be a string and SHOULD be a common identifier. It is RECOMMENDED to reference a unit serialization scheme to allow automatic unit conversion.
-- If [UCUM](http://unitsofmeasure.org) is used as unit serialization scheme, then the `"type"` value of `"symbol"` SHALL be `"http://www.opengis.net/def/uom/UCUM/"`.
+- A parameter object MAY have a member with the name `"unit"` where the value is an object which MUST have either or both the members `"label"` or/and "`symbol`", and which MAY have the member `"id"`. If given, the value of `"symbol"` MUST either be a string of the symbolic notation of the unit, or an object with the members `"value"` and `"type"` where `"value"` is the symbolic unit notation and `"type"` references the unit serialization scheme that is used. `"type"` MUST HAVE the value `"http://www.opengis.net/def/uom/UCUM/`" if [UCUM](http://unitsofmeasure.org) is used, or a custom value as recommended in section "Extensions". If given, the value of `"label"` MUST be an i18n object of the name of the unit and SHOULD be short. If given, the value of `"id"` MUST be a string and SHOULD be a common identifier. It is RECOMMENDED to reference a unit serialization scheme to allow automatic unit conversion.
 - A parameter object MUST NOT have a `"unit"` member if the `"observedProperty"` member has a `"categories"` member.
 
 
@@ -494,7 +494,7 @@ Its general structure is:
 ```
 
 - The value of the type member MUST be `"Domain"`.
-- For interoperability reasons it is RECOMMENDED that a domain object has the member `"domainType"` with a string value to indicate that the domain follows a certain structure (e.g. a time series, a vertical profile, a spatio-temporal 4D grid). See the ["Common CoverageJSON Domain Types Specification"][domain-types], which forms part of this specification, for details. Custom domain types not part of this specification MAY be given by full URIs only.
+- For interoperability reasons it is RECOMMENDED that a domain object has the member `"domainType"` with a string value to indicate that the domain follows a certain structure (e.g. a time series, a vertical profile, a spatio-temporal 4D grid). See the ["Common CoverageJSON Domain Types Specification"][domain-types], which forms part of this specification, for details. Custom domain types may be used as recommended in the section "Extensions".
 - A domain object MUST have the member `"axes"` which has as value an object where each key is an axis identifier and each value an axis object as defined below. 
 - A domain object MAY have the member `"referencing"` where the value is an array of reference system connection objects as defined below.
 - A domain object MUST have a `"referencing"` member if the domain object is not part of a coverage collection or if the coverage collection does not have a `"referencing"` member.
@@ -504,7 +504,7 @@ Its general structure is:
 - An axis object MUST have either a `"values"` member or, as a compact notation for a regularly spaced numeric axis, all the members `"start"`, `"stop"`, and `"num"`.
 - The value of `"values"` is a non-empty array of axis values.
 - The values of `"start"` and `"stop"` MUST be numbers, and the value of `"num"` an integer greater than zero. If the value of `"num"` is `1`, then `"start"` and `"stop"` MUST have identical values. For `num > 1`, the array elements of `"values"` MAY be reconstructed with the formula `start + i * step` where `i` is the ith element and in the interval `[0, num-1]` and `step = (stop - start) / (num - 1)`. If `num = 1` then `"values"` is `[start]`. Note that `"start"` can be greater than `"stop"` in which case the axis values are descending.
-- The value of `"dataType"` determines the structure of an axis value and its components that are made available for referencing. The value of `"dataType"` MUST be either `"primitive"`, `"tuple"`, `"polygon"`, or a full custom URI (although custom data types are not recommended for interoperability reasons). For `"primitive"`, there is a single component and each axis value MUST be a number or string. For `"tuple"`, each axis value MUST be an array of fixed size of primitive values in a defined order, where the tuple size corresponds to the number of components. For `"polygon"`, each axis value MUST be a GeoJSON Polygon coordinate array, where each of the coordinate components (e.g. the x coordinates) form a component in the order they appear.
+- The value of `"dataType"` determines the structure of an axis value and its components that are made available for referencing. The values of `"dataType"` defined in this specification are `"primitive"`, `"tuple"`, and `"polygon"`. Custom values MAY be used as detailed in the "Extensions" section. For `"primitive"`, there is a single component and each axis value MUST be a number or string. For `"tuple"`, each axis value MUST be an array of fixed size of primitive values in a defined order, where the tuple size corresponds to the number of components. For `"polygon"`, each axis value MUST be a GeoJSON Polygon coordinate array, where each of the coordinate components (e.g. the x coordinates) form a component in the order they appear.
 - If missing, the member `"dataType"` defaults to `"primitive"` and MUST not be included for that default case.
 - If `"dataType"` is `"primitive"` and the associated reference system (see 6.1.2) defines a natural ordering of values then the array values in `"values"`, if existing, MUST be ordered monotonically, that is, increasing or decreasing.
 - The value of `"components"` is a non-empty array of component identifiers corresponding to the order of the components defined by `"dataType"`.
@@ -564,7 +564,7 @@ Example of an axis object with Polygon values:
 A reference system connection object creates a link between values within domain axes and a reference system to be able to interpret those values, e.g. as coordinates in a certain coordinate reference system.
 
 - A reference system connection object MUST have a member `"components"` which has as value an array of component identifiers that are referenced in this object. Depending on the type of referencing, the ordering of the identifiers MAY be relevant, e.g. for 2D/3D coordinate reference systems.
-- A reference system connection object MUST have a member `"system"` which has as value a reference system object. Section 5 defines common types of  reference system objects.
+- A reference system connection object MUST have a member `"system"` which has as value a reference system object. At minimum, a reference system object MUST have a `"type"` member, where common type values and additional type-dependent members are defined in section 5. Custom types MAY be used as recommended in section "Extensions".
 
 Example of a reference system connection object:
 
@@ -792,43 +792,131 @@ A CoverageJSON object with the type `"Coverage"` is a coverage object.
 
 A CoverageJSON object with the type `"CoverageCollection"` is a coverage collection object.
 
-- A coverage collection object MAY have the member `"domainType"` with a string value to indicate that the coverage collection only contains coverages of the given domain type. See the ["Common CoverageJSON Domain Types Specification"][domain-types], which forms part of this specification, for details. Custom domain types not part of this specification MAY be given by full URIs only.
+- A coverage collection object MAY have the member `"domainType"` with a string value to indicate that the coverage collection only contains coverages of the given domain type. See the ["Common CoverageJSON Domain Types Specification"][domain-types], which forms part of this specification, for details. Custom domain types may be used as recommended in the section "Extensions".
 - If a coverage collection object has the member `"domainType"`, then this member is inherited to all included coverages.
 - A coverage collection object MUST have a member with the name `"coverages"`. The value corresponding to `"coverages"` is an array. Each element in the array is a coverage object as defined above.
 - A coverage collection object MAY have a member with the name `"parameters"` where the value is an object where each member has as name a short identifier and as value a parameter object.
 - A coverage collection object MAY have a member with the name `"parameterGroups"` where the value is an array of ParameterGroup objects.
 - A coverage collection object MAY have a member with the name `"referencing"` where the value is an array of reference system connection objects.
 
-## 7. JSON-LD
+## 7. Extensions
 
-A JSON-LD context MAY be established by including a `"@context"` element in the root of a CoverageJSON object which SHOULD refer to the base CoverageJSON context `"https://rawgit.com/reading-escience-centre/coveragejson/master/contexts/coveragejson-base.jsonld"` and any other necessary contexts. Domain axis values and range values SHOULD *not* be exposed as linked data since they are currently not suitable for such representation.
+A CoverageJSON document can be extended with custom members and types in a robust and interoperable way. For that, it makes use of absolute URIs and compact URIs (prefix:suffix) in order to avoid conflicts with other extensions and future versions of the format. A central registry of compact URI prefixes is provided which anyone can extend and which is a simple mapping from compact URI prefix to namespace URI in order to avoid collisions with other extensions that are based on compact URIs as well. Extensions that do not follow this approach MAY use simple names instead of absolute or compact URIs but have to accept the consequence of the document being less interoperable and future-proof. In certain use cases this is not an issue and may be a preferred solution for simplicity reasons, for example, if such CoverageJSON documents are only used internally and are not meant to be shared to a wider audience.
+
+### 7.1. Custom members
+
+If a custom member is added to a CoverageJSON document, its name SHOULD be a compact URIs of the form `"prefix:suffix"`.
+
+Example:
+
+```json
+{
+  "type" : "Coverage",
+  "dct:license": "https://creativecommons.org/licenses/by/4.0/",
+  ...
+}
+```
+
+The prefix SHOULD be registered at http://covjson.org/prefixes/ which in the example above would be `dct = http://purl.org/dc/terms/`.
+
+If the value of a custom member can have multiple structures, for example a string or an object, then a client should ignore the member if it does not understand the structure that is used.
+
+Example of a different value structure:
+
+```json
+{
+  "type" : "Coverage",
+  "dct:license": {
+    "id": "https://creativecommons.org/licenses/by/4.0/",
+    "label": {
+      "en": "Creative Commons Attribution 4.0 International License"
+    }
+  },
+  ...
+}
+```
+
+### 7.2. Custom types
+
+Custom types MAY be used with the following members:
+
+- `"domainType"` in domain objects
+- `"dataType"` in axis objects
+- `"type"` in reference system objects
+- `"type"` in unit symbol objects
+- `"type"` within custom members that have an object as value
+
+The custom value of those members SHOULD be either an absolute URI or a compact URI. If a compact URI is used, then the prefix SHOULD be registered at http://covjson.org/prefixes/.
+
+Example of a custom unit symbol type using an absolute URI:
+
+```json
+{
+  "type" : "Parameter",
+  "unit" : {
+    "symbol": {
+      "value": "degreeC",
+      "type": "http://www.opengis.net/def/uom/UDUNITS/"
+    }
+  },
+  "observedProperty" : {
+    "label" : {
+      "en": "Air temperature"
+    }
+  }
+}
+```
+
+Example of a custom reference system type using a compact URI:
+
+```json
+{
+  "type": "uor:HEALPixRS",
+  "uor:h": 3,
+  "uor:k": 3,
+  "uor:ordering": "nested"
+}
+```
+
+
+## 8. JSON-LD
+
+If no JSON-LD context is given, then the default context `http://covjson.org/context.jsonld` SHALL be assumed. Note that this context includes registered namespace prefixes and MAY be updated in a backwards-compatible way as the format evolves.
+
+Additional semantics not provided by the default context MAY be provided by specifying an explicit `"@context"` member in the root of a CoverageJSON document. The value of that member MUST be an array where the first element is the default context URL. Any additional context definitions SHALL NOT override definitions of the default context, except when the definition is identical.
+
+Providing an explicit context is especially useful for extensions. A recommended practice is to include any used namespace prefixes, even if registered, in the explicit context. This provides additional clarity and helps humans understand the document more quickly.
+
+It is NOT RECOMMENDED to use the explicit JSON-LD context to map simple names, for example, `"license": "dct:license"`. On one side, this would hinder interoperability for generic non-JSON-LD clients, as they generally rely on absolute URIs or registered prefixes of compact URIs. On the other side, it would make documents less forward-compatible as there may be name collisions with future versions of the format where semantics of that name may be defined differently. It is therefore RECOMMENDED to use compact or absolute URIs if an explicit JSON-LD context is included.
+
+Note that domain axis values and range values SHOULD NOT be exposed as linked data via the JSON-LD context since they are not suitable for such representation.
 
 Example:
 
 ```json
 {
   "@context": [
-     "https://rawgit.com/reading-escience-centre/coveragejson/master/contexts/coveragejson-base.jsonld",
-     {
-      ...
-     }
-   ],
-   "type": "Coverage",
+    "http://covjson.org/context.jsonld",
+    {
+      "dct": "http://purl.org/dc/terms/",
+      "dct:license": { "@type": "@id" }
+    }
+  ],
+  "type" : "Coverage",
+  "dct:license": "https://creativecommons.org/licenses/by/4.0/",
    ...
 }
 ```
 
-All identifiers referred to in a CoverageJSON object SHOULD be URIs. These URIs SHOULD be taken from established vocabularies if available.
+In this example, additional semantics for the registered `dct` prefix are provided by stating that the `"dct:license"` member value in this document is an identifier and not just an unstructured string.
 
-TODO expand
-
-## 8. Resolving domain and range URLs
+## 9. Resolving domain and range URLs
 
 If a domain or range is referenced by a URL in a CoverageJSON document, then the client should, whenever is appropriate, load the data from the given URL and treat the loaded data as if it was directly embedded in place of the URL. When sending HTTP requests, the `Accept` header SHOULD be set appropriately to the CoverageJSON media type.
 
-## 9. Media Type and File Extension
+## 10. Media Type and File Extension
 
-The CoverageJSON media type SHALL be `application/prs.coverage+json` with an optional parameter `profile` which is a non-empty list of space-separated URIs identifying specific constraints or conventions that apply to a CoverageJSON document according to [RFC6906](http://www.ietf.org/rfc/rfc6906.txt). The only profile URI defined in this document is `http://coveragejson.org/profiles/standalone` which asserts that all domain and range objects are directly embedded in a CoverageJSON document and not referenced by URLs. There is no `charset` parameter and CoverageJSON documents MUST be serialized using the UTF-8 character encoding.
+The CoverageJSON media type SHALL be `application/prs.coverage+json` with an optional parameter `profile` which is a non-empty list of space-separated URIs identifying specific constraints or conventions that apply to a CoverageJSON document according to [RFC6906](http://www.ietf.org/rfc/rfc6906.txt). The only profile URI defined in this document is `http://covjson.org/def/core#standalone` which asserts that all domain and range objects are directly embedded in a CoverageJSON document and not referenced by URLs. There is no `charset` parameter and CoverageJSON documents MUST be serialized using the UTF-8 character encoding.
 
 The file extension SHALL be `covjson`.
 

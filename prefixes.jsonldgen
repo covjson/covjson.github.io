@@ -1,0 +1,8 @@
+---
+permalink: /prefixes.jsonld
+---
+{
+  "@context": {
+{% for entry in site.data.prefixes %}    "{{ entry[0] }}": "{{ entry[1] }}"
+{% endfor %}  }
+}
