@@ -8,3 +8,4 @@ hydra: http://www.w3.org/ns/hydra/core#
 qudt: http://qudt.org/schema/qudt#
 ignf: http://data.ign.fr/def/ignf#
 inspiregloss: http://inspire.ec.europa.eu/glossary/
+rel: http://www.iana.org/assignments/relation/
