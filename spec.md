@@ -785,6 +785,12 @@ A CoverageJSON object with the type `"Coverage"` is a coverage object.
 - A coverage object MUST have a `"parameters"` member if the coverage object is not part of a coverage collection or if the coverage collection does not have a `"parameters"` member.
 - A coverage object MAY have a member with the name `"parameterGroups"` where the value is an array of ParameterGroup objects.
 - A coverage object MUST have a member with the name `"ranges"` where the value is a range set object. Any member of a range set object has as name any of the names in a `"parameters"` object in scope and as value either an NdArray or TiledNdArray object or a URL resolving to a CoverageJSON document of such object. A `"parameters"` member in scope is either within the enclosing coverage object or, if part of a coverage collection, in the parent coverage collection object. The shape and axis names of each NdArray or TiledNdArray object MUST correspond to the domain axes defined by `"domain"`, while single-valued axes MAY be omitted. If the referenced parameter object has a `"categoryEncoding"` member, then each non-null array element of the `"values"` member of the NdArray object, or the linked NdArray objects within a TiledNdArray object, MUST be equal to one of the values defined in the `"categoryEncoding"` object and be interpreted as the matching category.
+- A coverage object MAY have a member with the name `"rangeAlternates"` where the value is a range alternates object. Any member of a range alternates object has as name a format identifier and a value that is defined by the format definition.
+- Note that it is allowed to have an empty `"ranges"` member object. This can make sense if `"rangeAlternates"` is given and clients are expected to have support for the alternative range format(s).
+
+Example:
+
+See the [Vertcal Profile Coverage Example](https://covjson.org/spec/#vertical-profile-coverage)
 
 ### 6.5. Coverage Collection Objects
 
@@ -796,6 +802,10 @@ A CoverageJSON object with the type `"CoverageCollection"` is a coverage collect
 - A coverage collection object MAY have a member with the name `"parameters"` where the value is an object where each member has as name a short identifier and as value a parameter object.
 - A coverage collection object MAY have a member with the name `"parameterGroups"` where the value is an array of ParameterGroup objects.
 - A coverage collection object MAY have a member with the name `"referencing"` where the value is an array of reference system connection objects.
+
+Example: 
+
+See the [Coverage Collection Example](https://covjson.org/spec/#coverage-collection)
 
 ## 7. Extensions
 
@@ -946,10 +956,10 @@ The file extension SHALL be `covjson`.
       }
     }, {
       "components": ["z"],
-      "systems": {
+      "system": {
         "type": "VerticalCRS",
         "cs": {
-          "axes": [{
+          "csAxes": [{
             "name": {
               "en": "Pressure"
             },
@@ -1057,7 +1067,7 @@ The file extension SHALL be `covjson`.
     "system": {
       "type": "VerticalCRS",
       "cs": {
-        "axes": [{
+        "csAxes": [{
           "name": {
             "en": "Pressure"
           },
