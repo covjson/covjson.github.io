@@ -1,5 +1,6 @@
+url: https://covjson.org
 title: CoverageJSON
-description: CoverageJSON is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).
+description: CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).
 logo: /logo_small.png
 markdown: kramdown
 kramdown:
