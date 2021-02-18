@@ -136,19 +136,7 @@ Range data can also be directly embedded into the main CoverageJSON document, ma
 
 ### 1.2. Differences to OGC Coverage Implementation Schema (CIS)
 
-The candidate OGC standard [Coverage Implementation Schema 1.1](http://www.opengeospatial.org/pressroom/pressreleases/2345) (short CIS)
-defines a coverage model targeted towards OGC service types like Web Coverage Service (WCS)
-and is the successor of the
-["GML 3.2.1 Application Schema – Coverages" version 1.0](https://portal.opengeospatial.org/files/?artifact_id=48553) (short GMLCOV).
-
-The model of CoverageJSON can be seen as a mix of CIS and the data cube-based [NetCDF file format](https://en.wikipedia.org/wiki/NetCDF).
-
-The following lists some areas where the model used by CoverageJSON departs from CIS:
-
-- CIS enforces exactly one coordinate reference system (CRS) per coverage, CoverageJSON allows CRSs to be associated with a given combination of coordinates.
-- CIS has separate domain concepts for grids vs other types, CoverageJSON always uses collections of orthogonal axes for organizing domains, whether gridded or not.
-- CIS has no specific model for describing categories of a categorical parameter, CoverageJSON defines such a model.
-- CIS has no notion of semantically grouping parameters (e.g. velocity = speed + direction), CoverageJSON allows that.
+[This section has been removed pending a re-evaluation, as a lot has changed since this was originally written.]
 
 ### 1.3. Definitions
 
