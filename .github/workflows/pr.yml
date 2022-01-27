@@ -1,0 +1,19 @@
+name: "Jekyll build"
+
+on: pull_request
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: helaili/jekyll-action@v2
+      with:
+        build_only: true
+        jekyll_build_options: -d _site
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: page
+        path: _site

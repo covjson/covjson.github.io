@@ -1,0 +1,15 @@
+name: "Jekyll build and publish"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: helaili/jekyll-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
