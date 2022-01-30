@@ -27,7 +27,7 @@ runs:
       working-directory: ${{ inputs.tmpPath }}
       shell: bash
     
-    - run: mkdir -p ${{ inputs.path }}
+    - run: mkdir -p ${{ inputs.outPath }}
       shell: bash
 
     - run: cp -r ${{ inputs.tmpPath }}/dist/* ${{ inputs.outPath }}
