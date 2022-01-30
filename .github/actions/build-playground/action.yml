@@ -1,0 +1,37 @@
+name: 'CovJSON Playground build'
+description: 'Builds the embeddable variant of the CovJSON playground'
+inputs:
+  outPath:
+    description: 'Output path of playground build'
+    required: true
+  tmpPath:
+    description: 'Temporary path to clone playground repository into'
+    required: false
+    default: 'playground-tmp'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: covjson/playground
+        ref: letmaik/codemirror
+        path: ${{ inputs.tmpPath }}
+    
+    - uses: actions/setup-node@v2
+
+    - run: npm install
+      working-directory: ${{ inputs.tmpPath }}
+      shell: bash
+    
+    - run: npm run build-embeddable
+      working-directory: ${{ inputs.tmpPath }}
+      shell: bash
+    
+    - run: mkdir -p ${{ inputs.path }}
+      shell: bash
+
+    - run: cp -r ${{ inputs.tmpPath }}/dist/* ${{ inputs.outPath }}
+      shell: bash
+
+    - run: rm -rf ${{ inputs.tmpPath }}
+      shell: bash
