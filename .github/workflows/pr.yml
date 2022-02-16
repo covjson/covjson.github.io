@@ -1,12 +1,18 @@
 name: "Jekyll build"
 
-on: pull_request
+on:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   jekyll:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
+    - uses: ./.github/actions/build-playground
+      with:
+        outPath: ./playground
 
     - uses: helaili/jekyll-action@v2
       with:
