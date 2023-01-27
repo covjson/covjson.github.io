@@ -20,3 +20,7 @@ python:
   - name: pycovjson (WIP)
     url: https://github.com/Reading-eScience-Centre/pycovjson
     description: Transforms common scientific data formats like netCDF into CovJSON.
+    
+  - name: covjson-pydantic (WIP)
+    url: https://github.com/KNMI/covjson-pydantic
+    description: Pydantic models for reading and writing CoverageJSON
