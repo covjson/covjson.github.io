@@ -6,11 +6,12 @@ permalink: /spec/
 
 # Specification
 
-CoverageJSON is being developed as OGC Community Standard.
+CoverageJSON was approved as an OGC Community standard in December 2022.
 
 ### Specification documents
 
-- [OGC Current Working Draft](https://opengeospatial.github.io/ogcna-auto-review/21-069.html) (daily build)
+- [Official CoverageJSON page](https://www.ogc.org/standard/coveragejson/) on OGC website
+- [CoverageJSON Community Standard v1.0](https://docs.ogc.org/cs/21-069r2/21-069r2.html)
 
 ### Contributions
 
