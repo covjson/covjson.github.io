@@ -1,0 +1,46 @@
+html, body {
+	height: 100%;
+}
+
+:focus {
+  outline: none;
+}
+
+iframe {
+	border: none;
+}
+
+pre {
+	border: none;
+}
+
+.navbar-brand > img {
+	display: inline;
+	margin-top: -5px;
+}
+
+body {
+  padding-top: 64px;
+  font-size: 15px;
+}
+
+.navbar-right iframe {
+	margin-top: 17px;
+}
+
+@media (min-width:768px) {
+  body>.navbar-transparent {
+    background-color: transparent;
+  }
+
+  body>.navbar-transparent .navbar-nav>.open>a {
+    background-color: transparent!important;
+  }
+}
+
+@media (max-width:767px) {
+  .navbar-right iframe {
+    margin-left: 14px;
+    margin-top: 0;
+  }
+}

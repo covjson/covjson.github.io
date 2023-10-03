@@ -1,0 +1,71 @@
+{
+  "type" : "Coverage",
+  "domain" : {
+    "type" : "Domain",
+    "domainType" : "Grid",
+    "axes": {
+      "x" : { "values": [-10,-5,0] },
+      "y" : { "values": [40,50] },
+      "t" : { "values": ["2010-01-01T00:12:20Z"] }
+    },
+    "referencing": [{
+      "coordinates": ["x","y"],
+      "system": {
+        "type": "GeographicCRS",
+        "id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      }
+    }, {
+      "coordinates": ["t"],
+      "system": {
+        "type": "TemporalRS",
+        "calendar": "Gregorian"
+      }
+    }]
+  },
+  "parameters" : {
+    "LC": {
+      "type" : "Parameter",
+      "description" : {
+        "en": "Land Cover according to xyz classification"
+      },
+      "observedProperty" : {
+        "id" : "http://example.com/landcover",
+        "label" : {
+          "en": "XYZ Land Cover"
+        },
+        "categories" : [{
+          "id": "http://example.com/landcover/categories/grass",
+          "label": {
+            "en": "Grass"
+          },
+          "description": {
+            "en": "Very green grass."
+          },
+          "preferredColor": "#01A611"
+        }, {
+          "id": "http://example.com/landcover/categories/rocks",
+          "label": {
+            "en": "Rock"
+          },
+          "description": {
+            "en": "Just rocks."
+          },
+          "preferredColor": "#A0A0A0"
+        }]
+      },
+      "categoryEncoding": {
+        "http://example.com/landcover/categories/grass": 1,
+        "http://example.com/landcover/categories/rocks": 2
+      }
+    }
+  },
+  "ranges" : {
+    "LC" : {
+      "type" : "NdArray",
+      "dataType": "integer",
+      "axisNames": ["t","y","x"],
+      "shape": [1, 2, 3],
+      "values" : [ 1, 1, null, 2, 1, 2 ]
+    }
+  }
+}

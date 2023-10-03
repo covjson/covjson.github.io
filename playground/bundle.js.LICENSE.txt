@@ -1,0 +1,26 @@
+/* @license C3.js v0.4.24 | (c) C3 Team and other contributors | http://c3js.org/ */
+
+/* @preserve
+ * Leaflet 1.7.1, a JS library for interactive maps. http://leafletjs.com
+ * (c) 2010-2019 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+/**
+ * k-d Tree JavaScript - V 1.01
+ *
+ * https://github.com/ubilabs/kd-tree-javascript
+ *
+ * @author Mircea Pricop <pricop@ubilabs.net>, 2012
+ * @author Martin Kleppe <kleppe@ubilabs.net>, 2012
+ * @author Ubilabs http://ubilabs.net, 2012
+ * @license MIT License <http://www.opensource.org/licenses/mit-license.php>
+ */
+
+/** @license URI.js v4.4.1 (c) 2011 Gary Court. License: http://github.com/garycourt/uri-js */

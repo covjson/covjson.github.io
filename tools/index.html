@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntax-highlight.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tools | CoverageJSON</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Tools" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<meta property="og:description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<link rel="canonical" href="https://covjson.org/tools/" />
+<meta property="og:url" content="https://covjson.org/tools/" />
+<meta property="og:site_name" content="CoverageJSON" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tools" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).","headline":"Tools","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://covjson.org/logo_small.png"}},"url":"https://covjson.org/tools/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand"><img height="30" src="/logo_small.png"> CoverageJSON</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a href="/playground/">Playground</a></li>
+            <li><a href="/cookbook/">Cookbook</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/spec/">Specification</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <style>
+.tools .panel-heading h3 {
+  margin-top: 12px;
+  margin-bottom: 12px;  
+}
+</style>
+
+<div class="container tools">
+  <div class="page-header">
+    <h2>Tools</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+	    <div class="panel panel-default">
+			  <div class="panel-heading"><h3>JavaScript</h3></div>
+
+	      <div class="list-group">
+	      
+          <a href="https://github.com/Reading-eScience-Centre/covjson-reader" class="list-group-item">
+            <h4 class="list-group-item-heading">covjson-reader</h4>
+            <p class="list-group-item-text">A CovJSON reader supporting subsetting and lazy loading.</p>
+          </a>
+        
+          <a href="https://github.com/Reading-eScience-Centre/leaflet-coverage" class="list-group-item">
+            <h4 class="list-group-item-heading">leaflet-coverage</h4>
+            <p class="list-group-item-text">A Leaflet plugin for visualizing CovJSON and other coverage data.</p>
+          </a>
+        
+          <a href="https://github.com/Reading-eScience-Centre/webworldwind-covjson" class="list-group-item">
+            <h4 class="list-group-item-heading">webworldwind-covjson (WIP)</h4>
+            <p class="list-group-item-text">A Web World Wind plugin for visualizing CovJSON and other coverage data.</p>
+          </a>
+        
+        </div>
+	    </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>Java</h3></div>
+
+        <div class="list-group">
+        
+          <a href="https://reading-escience-centre.gitbooks.io/ncwms-user-guide/content/" class="list-group-item">
+            <h4 class="list-group-item-heading">ncWMS</h4>
+            <p class="list-group-item-text">A WMS server with CovJSON as output format.</p>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>Python</h3></div>
+
+        <div class="list-group">
+        
+          <a href="https://github.com/Reading-eScience-Centre/pycovjson" class="list-group-item">
+            <h4 class="list-group-item-heading">pycovjson (WIP)</h4>
+            <p class="list-group-item-text">Transforms common scientific data formats like netCDF into CovJSON.</p>
+          </a>
+        
+          <a href="https://github.com/KNMI/covjson-pydantic" class="list-group-item">
+            <h4 class="list-group-item-heading">covjson-pydantic (WIP)</h4>
+            <p class="list-group-item-text">Pydantic models for reading and writing CoverageJSON</p>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">How to add your tool</h3>
+    </div>
+    <div class="panel-body">
+      Just submit a pull request for the 
+      <a href="https://github.com/covjson/covjson.github.io/blob/master/_data/tools.yaml">tools.yaml</a>
+      file on GitHub, and once accepted, your tool will appear here immediately.
+      <a href="https://github.com/covjson/covjson.github.io/issues/new">Create an issue</a>
+      if your tool is written in a language other than the ones above.
+    </div>
+  </div>
+</div>
+
+    
+    <script src="/js/scroll-fix.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntax-highlight.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CoverageJSON | CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="CoverageJSON" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<meta property="og:description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<link rel="canonical" href="https://covjson.org/" />
+<meta property="og:url" content="https://covjson.org/" />
+<meta property="og:site_name" content="CoverageJSON" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CoverageJSON" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).","headline":"CoverageJSON","name":"CoverageJSON","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://covjson.org/logo_small.png"}},"url":"https://covjson.org/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand"><img height="30" src="/logo_small.png"> CoverageJSON</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a href="/playground/">Playground</a></li>
+            <li><a href="/cookbook/">Cookbook</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/spec/">Specification</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <style>
+.tools .heading, .collaborate .heading {
+  margin-bottom: 15px;  
+}
+.tools .heading h2, .collaborate .heading h2 {
+  text-align: center;
+}
+.tools .heading .glyphicon, .collaborate .heading .glyphicon {
+  margin-top: -0.2em;
+  vertical-align: middle;
+}
+.collaborate {
+  margin-top: 20px;
+}
+.footer {
+  text-align: center;
+}
+</style>
+
+<div class="jumbotron">
+	<div class="container">
+	  <h1>CoverageJSON</h1>
+	  <p>A format for publishing geotemporal data to the web.</p>
+	  <p>
+	    <a class="btn btn-lg btn-primary" href="/playground/" role="button">Go to Playground &raquo;</a>
+	  </p>
+	</div>
+</div>
+
+<div class="container tools">
+  <div class="row heading">
+    <h2 class="span12"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tools</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>JavaScript</h4></div>
+
+        <div class="list-group">
+        
+          <a href="https://github.com/Reading-eScience-Centre/covjson-reader" class="list-group-item">
+            <h5 class="list-group-item-heading">covjson-reader</h5>
+            <p class="list-group-item-text">A CovJSON reader supporting subsetting and lazy loading.</p>
+          </a>
+        
+          <a href="https://github.com/Reading-eScience-Centre/leaflet-coverage" class="list-group-item">
+            <h5 class="list-group-item-heading">leaflet-coverage</h5>
+            <p class="list-group-item-text">A Leaflet plugin for visualizing CovJSON and other coverage data.</p>
+          </a>
+        
+          <a href="https://github.com/Reading-eScience-Centre/webworldwind-covjson" class="list-group-item">
+            <h5 class="list-group-item-heading">webworldwind-covjson (WIP)</h5>
+            <p class="list-group-item-text">A Web World Wind plugin for visualizing CovJSON and other coverage data.</p>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Java</h4></div>
+
+        <div class="list-group">
+        
+          <a href="https://reading-escience-centre.gitbooks.io/ncwms-user-guide/content/" class="list-group-item">
+            <h5 class="list-group-item-heading">ncWMS</h5>
+            <p class="list-group-item-text">A WMS server with CovJSON as output format.</p>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Python</h4></div>
+
+        <div class="list-group">
+        
+          <a href="https://github.com/Reading-eScience-Centre/pycovjson" class="list-group-item">
+            <h5 class="list-group-item-heading">pycovjson (WIP)</h5>
+            <p class="list-group-item-text">Transforms common scientific data formats like netCDF into CovJSON.</p>
+          </a>
+        
+          <a href="https://github.com/KNMI/covjson-pydantic" class="list-group-item">
+            <h5 class="list-group-item-heading">covjson-pydantic (WIP)</h5>
+            <p class="list-group-item-text">Pydantic models for reading and writing CoverageJSON</p>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container collaborate">
+  <div class="row heading">
+    <h2 class="span12"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Getting Help / Collaborating</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Contribute</h4></div>
+
+        <div class="list-group">
+        
+          <a href="https://github.com/opengeospatial/CoverageJSON" class="list-group-item">
+            <h5 class="list-group-item-heading"><img src="/img/GitHub-Mark-64px.png" width=32 /> opengeospatial/CoverageJSON</h5>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Discuss</h4></div>
+
+        <div class="list-group">
+        
+          <a href="https://gitter.im/covjson/specification" class="list-group-item">
+            <h5 class="list-group-item-heading"><img src="https://img.shields.io/gitter/room/gitterHQ/gitter.svg" height=32 /></h5>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Contact Us</h4></div>
+
+        <div class="list-group">
+        
+          <a href="mailto:m.riechert@reading.ac.uk,j.d.blower@reading.ac.uk?Subject=CoverageJSON" class="list-group-item">
+            <h5 class="list-group-item-heading"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email</h5>
+          </a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container footer">
+  <hr>
+  <p>
+    Copyright &copy; 2015 The University of Reading.
+    CoverageJSON is developed within the <a href="http://www.melodiesproject.eu">MELODIES project</a>.
+  </p>
+</div>
+
+    
+    <script src="/js/scroll-fix.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>

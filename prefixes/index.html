@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntax-highlight.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Prefix Registry | CoverageJSON</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Prefix Registry" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<meta property="og:description" content="CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON)." />
+<link rel="canonical" href="https://covjson.org/prefixes/" />
+<meta property="og:url" content="https://covjson.org/prefixes/" />
+<meta property="og:site_name" content="CoverageJSON" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Prefix Registry" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CoverageJSON (CovJSON) is a geospatial coverage interchange format based on JavaScript Object Notation (JSON).","headline":"Prefix Registry","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://covjson.org/logo_small.png"}},"url":"https://covjson.org/prefixes/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand"><img height="30" src="/logo_small.png"> CoverageJSON</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a href="/playground/">Playground</a></li>
+            <li><a href="/cookbook/">Cookbook</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/spec/">Specification</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+	<div class="page-header">
+	  <h2>Prefix Registry</h2>
+	</div>
+	<p>
+	  An easy way to extend CoverageJSON is to add new fields to it.
+	  In order to avoid name clashes (both with other extensions and future versions of the format)
+	  it is recommended to use names of the form <code>"prefix:suffix"</code>.
+	  If CoverageJSON documents using that prefix shall be published more widely,
+	  then the prefix should be registered together with the corresponding namespace URI.
+	  A registration avoids name clashes and eases common understanding of extensions without establishing the full
+	  machinery of JSON-LD for example.
+	  More details can be found in the <a href="https://covjson.org/spec/#extensions">"Extensions" section</a>
+	  of the specification.
+	</p>
+	
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">How to register a prefix</h3>
+	  </div>
+	  <div class="panel-body">
+	    <strong>Very simple!</strong>
+	    The only thing you have to do is edit the 
+	    <a href="https://github.com/covjson/covjson.github.io/blob/master/_data/prefixes.yaml">prefixes.yaml</a>
+	    file on GitHub and submit a pull request. Once the request is accepted, the prefix entry immediately appears in
+	    the table below, as well as in the <a href="https://covjson.org/prefixes.jsonld">covjson.org/prefixes.jsonld</a>
+	    file which is included in the <a href="https://covjson.org/context.jsonld">default JSON-LD context</a>,
+	    making it available for linked data applications.
+	    If you register a prefix for a common namespace, try to use an established prefix.
+	    The website <a href="http://prefix.cc/">prefix.cc</a> may provide some help for that.
+	  </div>
+	</div>
+	
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Prefix</th>
+	      <th>URI</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			
+			  <tr><td>covjson</td><td><a href="https://covjson.org/def/core#" target="_blank">https://covjson.org/def/core#</a></td></tr>
+			
+			  <tr><td>covjsondt</td><td><a href="https://covjson.org/def/domainTypes#" target="_blank">https://covjson.org/def/domainTypes#</a></td></tr>
+			
+			  <tr><td>xsd</td><td><a href="http://www.w3.org/2001/XMLSchema#" target="_blank">http://www.w3.org/2001/XMLSchema#</a></td></tr>
+			
+			  <tr><td>ssn</td><td><a href="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#" target="_blank">http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#</a></td></tr>
+			
+			  <tr><td>skos</td><td><a href="http://www.w3.org/2004/02/skos/core#" target="_blank">http://www.w3.org/2004/02/skos/core#</a></td></tr>
+			
+			  <tr><td>dct</td><td><a href="http://purl.org/dc/terms/" target="_blank">http://purl.org/dc/terms/</a></td></tr>
+			
+			  <tr><td>hydra</td><td><a href="http://www.w3.org/ns/hydra/core#" target="_blank">http://www.w3.org/ns/hydra/core#</a></td></tr>
+			
+			  <tr><td>qudt</td><td><a href="http://qudt.org/schema/qudt#" target="_blank">http://qudt.org/schema/qudt#</a></td></tr>
+			
+			  <tr><td>ignf</td><td><a href="http://data.ign.fr/def/ignf#" target="_blank">http://data.ign.fr/def/ignf#</a></td></tr>
+			
+			  <tr><td>inspiregloss</td><td><a href="http://inspire.ec.europa.eu/glossary/" target="_blank">http://inspire.ec.europa.eu/glossary/</a></td></tr>
+			
+			  <tr><td>rel</td><td><a href="http://www.iana.org/assignments/relation/" target="_blank">http://www.iana.org/assignments/relation/</a></td></tr>
+			
+	  </tbody>
+	</table>
+</div>
+
+    
+    <script src="/js/scroll-fix.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
