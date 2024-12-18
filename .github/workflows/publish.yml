@@ -2,7 +2,7 @@ name: "Jekyll build and publish"
 
 on:
   push:
-    branches: [master]
+    branches: [foo]
   workflow_dispatch:
 
 jobs:
