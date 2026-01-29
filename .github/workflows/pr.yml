@@ -19,7 +19,7 @@ jobs:
         build_only: true
         jekyll_build_options: -d _site
     
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: page
         path: _site
