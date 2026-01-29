@@ -27,9 +27,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build site using pr.yml workflow
+  # Build site using build-jekyll.yml workflow
   build:
-    uses: ./.github/workflows/pr.yml
+    uses: ./.github/workflows/build-jekyll.yml
 
   # Deployment job
   deploy:
