@@ -3,6 +3,7 @@ name: "Jekyll build"
 on:
   pull_request:
   workflow_dispatch:
+  workflow_call: # Allows this workflow to be called by others, e.g. deploy-jekyll.yml
 
 jobs:
   # Build job
