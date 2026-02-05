@@ -51,7 +51,12 @@
     
     "Parameter": "covjson:Parameter",
     "parameters": { "@id": "covjson:parameter", "@type": "@id", "@container": "@index" },
-    "observedProperty": "ssn:observedProperty",
+    
+    "observedProperty": "sosa:observedProperty",
+    "usedProcedure": "sosa:usedProcedure"
+    "madeBySensor": "sosa:madeBySensor"
+    "hasFeatureOfInterest": "sosa:hasFeatureOfInterest"
+  
     "categoryEncoding": "covjson:categoryEncoding",
     "ParameterGroup": "covjson:ParameterGroup",
     "members": { "@id": "covjson:member", "@type": "@vocab", "@container": "@set" },
